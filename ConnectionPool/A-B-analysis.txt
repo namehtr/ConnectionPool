@@ -1,0 +1,18 @@
+Single connection
+1000 req - 4.5
+10000 req - 76
+10000 parallel requests with 10 workers - 23.71
+
+New connection for each
+1000 req - 9 seconds
+10000 req - 107 sec
+10000 REQ WITH 10 - 118 sec
+
+5 connection pool
+10000 parallel requests with 10 workers - 21.45 seconds
+
+10 connection pool
+10000 parallel requests with 10 workers - 16.45 seconds
+
+100 connection pool
+10000 parallel requests with 10 workers - 16.79 seconds
