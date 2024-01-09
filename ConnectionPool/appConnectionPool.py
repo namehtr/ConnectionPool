@@ -4,11 +4,12 @@ from flask import Flask, request, jsonify
 import queue
 
 app = Flask(__name__)
-connection_pool = queue.Queue(maxsize=5)
+maxsize = 5
+connection_pool = queue.Queue(maxsize=maxsize)
 db_name = 'chat_db'
 collection_name = 'users'
 user_id_column = 'userId'
-for _ in range(100):
+for _ in range(maxsize):
     connection = MongoClient('mongodb://localhost:27017/')
     connection_pool.put(connection)
 
